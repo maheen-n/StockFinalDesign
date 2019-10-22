@@ -1,0 +1,211 @@
+<!doctype html>
+<html xmlns:th="https://thymeleaf.org">  
+  <head>
+    <title>HOME</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+ <body>
+     <style>
+
+body
+{
+     
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+
+tr td:first-child:before
+{
+  counter-increment: Serial;  /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+p.sansserif {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
+
+	
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+              <nav class="navbar bg-dark">
+                  <span class="navbar-brand">Stock Management</span>
+                </nav>
+                
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="checkout" class="nav-link ">Checkout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="product" class="nav-link ">Inventory</a>
+                        </li>
+                    </li>
+                    <li class="nav-item">
+                        <a href="transaction" class="nav-link ">Transaction</a>
+                    </li>
+                </li>
+              
+                           <form class="form-inline my-2 my-lg-0" action="#">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search Customer" aria-label="Search" name="keyword" required>
+                                <button class="btn btn-outline-light my-2 my-sm-0 " type="submit">Search</button>
+                          </form>
+               </ul>
+            
+                                
+              <li class="navbar-nav">
+                <a class="btn btn-danger" href="logout" role="button">Logout</a>
+                
+            </li>
+            </div>
+        </div>
+            
+    </nav>
+	     
+      
+    <script>
+         $(function(){
+        	  var current_page_URL = location.href;
+        	  $( "a" ).each(function() {
+        	     if ($(this).attr("href") !== "#") {
+        	       var target_URL = $(this).prop("href");
+        	       if (target_URL == current_page_URL) {
+        	          $('nav a').parents('li, ul').removeClass('active');
+        	          $(this).parent('li').addClass('active');
+        	          return false;
+        	       }
+        	     }
+        	  });
+        	});
+    </script>
+    
+
+    
+
+
+
+
+    
+ <div class="container-fluid  ">
+       
+            <div class="row justify-content-center"  style="font-size:30px;">
+             <p class="sansserif"> Dashboard </p>
+            </div>
+            <div class="card-deck shadow p-3 mb-5 bg-white rounded">
+                <div class="col-sm-6 col-lg-3">
+                        <div class="card border-dark  shadow">
+                          <div class="card-body">
+                           <div class="sansserif">Total Sales</div>
+                            <h1 id="val">&#x20B9;15000</h1>
+                        </div>
+                    </div>
+                </div>
+                            
+                     
+                <div class="col-sm-6 col-lg-3">
+
+                    <div class="card border-dark shadow">
+                        <div class="card-body">
+                            <div class="sansserif">Quantity</div>
+                            <h1 id="quantity">650</h1>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        </div>
+        
+        
+       
+       
+            
+              <div class="container-fluid ">
+        <p class="sansserif"  style="font-size:20px;">Todays Activity</p>
+            <div class="table-responsive shadow-lg p-3 mb-5 bg-white rounded">
+
+                <table class="table" id="table">
+                    <thead class="thead-dark table-hover table-bordered">
+                        <tr>
+                            <th>No:</th>
+                           
+                            <th>Product</th>
+                            <th>Quantity(feet)</th>
+                            <th>Amount</th>
+                            <th>Customer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            
+                            <td>MSand</td>
+                            <td>130</td>
+                            <td>4000 &#x20B9;</td>
+                            <td>Roahn</td>
+                            
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                
+                                <td>PSand</td>
+                                <td>130</td>
+                                <td>4000 &#x20B9;</td>
+                                <td>Kishore</td>
+                                
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    
+                                    <td>20mm</td>
+                                    <td>130</td>
+                                    <td>4000 &#x20B9;</td>
+                                    <td>Hari</td>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        
+                                        <td>10mm</td>
+                                        <td>130</td>
+                                       <td>434 &#x20B9;</td>
+                                       <td>Ram</td>
+                                    
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                       <td></td>
+                                    
+                                        <td>PSand</td>
+                                        <td>130</td>
+                                        <td>2323 &#x20B9;</td>
+                                        <td>Manu</td>
+                                        
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

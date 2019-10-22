@@ -1,0 +1,230 @@
+<!doctype html> 
+  <head>
+    <title>Inventory</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/custom.js"></script>
+
+</head>
+ <body>
+
+
+	
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+              <nav class="navbar bg-dark">
+                  <span class="navbar-brand">Stock Management</span>
+                </nav>
+                
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="checkout" class="nav-link ">Checkout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="product" class="nav-link ">Inventory</a>
+                        </li>
+                    </li>
+                    <li class="nav-item">
+                        <a href="transaction" class="nav-link ">Transaction</a>
+                    </li>
+                </li>
+              
+                           <form class="form-inline my-2 my-lg-0" action="#">
+                                <input class="form-control mr-sm-2" type="" placeholder="Search Customer" aria-label="Search" name="keyword" required>
+                                <button class="btn btn-outline-light my-2 my-sm-0 " type="">Search</button>
+                          </form>
+               </ul>
+            
+                                
+              <li class="navbar-nav">
+                <a class="btn btn-danger" href="logout" role="button">Logout</a>
+                
+            </li>
+            </div>
+        </div>
+            
+    </nav>
+	     
+      
+    <script>
+         $(function(){
+        	  var current_page_URL = location.href;
+        	  $( "a" ).each(function() {
+        	     if ($(this).attr("href") !== "#") {
+        	       var target_URL = $(this).prop("href");
+        	       if (target_URL == current_page_URL) {
+        	          $('nav a').parents('li, ul').removeClass('active');
+        	          $(this).parent('li').addClass('active');
+        	          return false;
+        	       }
+        	     }
+        	  });
+        	});
+    </script>
+
+<style>
+body{
+     background: #EEEEEE;
+}
+p.sansserif {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+ <div class="">
+	 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+       <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Details</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">�</span></button>
+           </div>
+             <div class="modal-body">
+								
+			<strong>	<p class="text-success " id="demo4"></p>  </strong>
+			     
+				  <div class="form-group">
+                    <label for="author" hidden="">id</label>
+				    <input type="text" hidden="" class="form-control" id="id">
+			      </div>
+				  <p class="text-success " id="demo1"></p> 
+       
+      		      <div class="form-group">
+                    <label for="author">Product</label>
+				    <input type="text" class="form-control" id="name">
+								  
+				  </div>
+				
+				  <div class="form-group">
+				    <label for="author">Orginal Price</label>
+				    <input type="text" class="form-control" id="orginal_price">
+						<p class="text-danger" id="demo2"></p>	
+				  </div>
+
+				   <div class="form-group">
+				    <label for="price">Selling Price</label>
+				    <input type="text" class="form-control" id="selling_price">
+							<p class="text-danger" id="demo3"></p>
+				  </div>
+				  <button type="button" id="btnClose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 <button type="button" id="btnSave" class="btn btn-primary">Save</button>
+		</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+  
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<h1>ARE YOU SURE</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="#" type="button" class="btn btn-danger" id="btnDeleteConfirm">DELETE</a>
+      </div>
+    </div>
+  </div>
+</div>			           
+	<div class="container">
+		<div class="jumbotron-fluid">
+					 	 <div class="row justify-content-center"  style="font-size:30px;">
+             <p class="sansserif">Checkout</p>
+            </div>
+				      </div>
+
+	 			<div class="col-md-12 text-right ">
+				<button class="btn btn-success shadow  badge-pill btnAdd" role="button" data-toggle="modal" data-target="#editModal">ADD</button>
+               </div>
+
+           <br>
+			
+           <table class="table shadow p-3 mb-5 bg-white rounded">
+						  <thead class="thead-dark table-hover table-bordered">
+						    <tr>
+						     
+						      <th scope="col">Product</th>
+						      <th scope="col">Orginal Price</th>
+						      <th scope="col">Selling Price</th>
+						      <th class="text-right">ACTIONS</th>
+						    </tr>
+						  </thead>
+				 <tbody>
+                          
+						    <tr>
+									
+				                    <td>M-Sand</td>
+				                    <td>45</td>
+				                    <td>56</td>
+
+							 <td class="text-right">
+								 <a href="#" class="badge shadow  badge-pill badge-dark btnEdit" role="button">EDIT</a>
+                                 <a href="#" class="badge shadow  badge-pill badge-danger btnDelete" role="button">DELETE</a>
+							</td>
+							</tr>
+						
+						    <tr>
+									
+				                    <td>P-Sand</td>
+				                    <td>50</td>
+				                    <td>55</td>
+
+							 <td class="text-right">
+								 <a href="#" class="badge shadow  badge-pill badge-dark btnEdit" role="button">EDIT</a>
+                                 <a href="#" class="badge shadow  badge-pill badge-danger btnDelete" role="button">DELETE</a>
+							</td>
+							</tr>
+						
+						    <tr>
+									
+				                    <td>12mm</td>
+				                    <td>35</td>
+				                    <td>45</td>
+
+							 <td class="text-right">
+								 <a href="#" class="badge shadow  badge-pill badge-dark btnEdit" role="button">EDIT</a>
+                                 <a href="#" class="badge shadow  badge-pill badge-danger btnDelete" role="button">DELETE</a>
+							</td>
+							</tr>
+						
+						    <tr>
+									
+				                    <td>20mm</td>
+				                    <td>40</td>
+				                    <td>50</td>
+
+							 <td class="text-right">
+								 <a href="#" class="badge shadow  badge-pill badge-dark btnEdit" role="button"> EDIT</a>
+                                 <a href="#" class="badge shadow  badge-pill badge-danger btnDelete" role="button">DELETE</a>
+							</td>
+							</tr>
+						
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html xmlns:th="https://thymeleaf.org">  
+  <head>
+    <title>HOME</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script type="text/javascript" src="/js/custom.js"></script>
+
+</head>
+ <body>
+     <style>
+
+
+
+body{
+     background: #EEEEEE;
+}
+h5.sansserif {
+  font-family: Arial, Helvetica, sans-serif;
+ 
+}
+p.sansserif {
+  font-family: Arial, Helvetica, sans-serif;
+}
+ .form-control:focus{
+          border-color: #723dbe;
+          box-shadow:0 0 0 0.2rem rgba(114,61,190,.25);
+      }
+
+#total{
+    font-size: 30px;
+
+}
+
+
+</style>
+
+	
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+              <nav class="navbar bg-dark">
+                  <span class="navbar-brand">Stock Management</span>
+                </nav>
+                
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="checkout" class="nav-link ">Checkout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="product" class="nav-link ">Inventory</a>
+                        </li>
+                    </li>
+                    <li class="nav-item">
+                        <a href="transaction" class="nav-link ">Transaction</a>
+                    </li>
+                </li>
+              
+                           <form class="form-inline my-2 my-lg-0" action="#">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search Customer" aria-label="Search" name="keyword" required>
+                                <button class="btn btn-outline-light my-2 my-sm-0 " type="submit">Search</button>
+                          </form>
+               </ul>
+            
+                                
+              <li class="navbar-nav">
+                <a class="btn btn-danger" href="logout" role="button">Logout</a>
+                
+            </li>
+            </div>
+        </div>
+            
+    </nav>
+	     
+     <!-- to active links  -->
+    <script>
+         $(function(){
+        	  var current_page_URL = location.href;
+        	  $( "a" ).each(function() {
+        	     if ($(this).attr("href") !== "#") {
+        	       var target_URL = $(this).prop("href");
+        	       if (target_URL == current_page_URL) {
+        	          $('nav a').parents('li, ul').removeClass('active');
+        	          $(this).parent('li').addClass('active');
+        	          return false;
+        	       }
+        	     }
+        	  });
+        	});
+	</script>
+	 
+      <script>
+          (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+          }, false);
+          });
+          }, false);
+          })();
+      </script>
+    
+
+
+ <div class="container">
+       <div class="card-deck ">
+          <div class="col-lg-6">
+		 <div class="row justify-content-center"  style="font-size:30px;">
+             <p class="sansserif">Checkout</p>
+            </div>
+            <table class="table table-sm shadow p-3 mb-5 bg-white rounded">
+						  <thead class="thead-dark table-hover table-bordered">
+						    <tr>
+			
+			
+						      <th scope="col">Product</th>
+						      <th scope="col">Orginal Price</th>
+						      <th scope="col">Selling Price</th>
+						      <th class="text-right">ACTIONS</th>
+						    </tr>
+						  </thead>
+				          
+                           <tbody>
+                                
+						    <tr>
+									
+				                    <td>20mm metal</td>
+				                    <td>33</td>
+				                    <td>33</td>
+
+							         <td class="text-right">
+								     <a href="#" class="badge badge-pill btn btn-primary  shadow rounded btnAddCart"role="button"  >ADD</a>
+                      </td>
+							</tr>
+						    
+						    <tr>
+									
+				                    <td>M-Sand</td>
+				                    <td>333</td>
+				                    <td>23</td>
+
+							         <td class="text-right">
+								     <a href="#" class="badge badge-pill btn btn-primary  shadow rounded btnAddCart"role="button"  >ADD</a>
+                      </td>
+							</tr>
+						    
+						    <tr>
+									
+				                    <td>P-Sand</td>
+				                    <td>56</td>
+				                    <td>45</td>
+
+							         <td class="text-right">
+								     <a href="#" class="badge badge-pill btn btn-primary  shadow rounded btnAddCart"role="button"  >ADD</a>
+                      </td>
+							</tr>
+						    
+						    <tr>
+									
+				                    <td>5mm metal</td>
+				                    <td>33</td>
+				                    <td>33</td>
+
+							         <td class="text-right">
+								     <a href="#" class="badge badge-pill btn btn-primary  shadow rounded btnAddCart"role="button"  >ADD</a>
+							</tr>
+						    
+						    <tr>
+									
+				                    <td>10mm Metal</td>
+				                    <td>44</td>
+				                    <td>55</td>
+
+							         <td class="text-right">
+								     <a href="#" class="badge badge-pill btn btn-primary  shadow rounded btnAddCart"role="button"  >ADD</a>
+                      </td>
+							</tr>
+						    
+						    <tr>
+									
+				                    <td>12mm Metal</td>
+				                    <td>66</td>
+				                    <td>77</td>
+
+							         <td class="text-right">
+								      <a href="#" class="badge badge-pill btn btn-primary  shadow rounded btnAddCart"role="button"  >ADD</a>
+                      </td>
+							</tr>
+						    
+					</tbody>
+				 </table>
+        </div>  
+   
+   
+    <div class="col-lg-6 shadow-lg p-3 mb-5 bg-white rounded">
+   
+             <h5 class="sansserif font-weight-bold "> Cart </h5>
+
+   <form class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="customer">Customer</label>
+      <input type="text" class="form-control" id="customername" 
+        required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="vehicle">Vehicle NO</label>
+      <input type="text" class="form-control" id="vehicle" onkeyup="this.value = this.value.toUpperCase();" 
+        required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+       <div class="col-md-4 mb-3">
+      <label for="vehicle">Product</label>
+      <input type="text" class="form-control font-weight-bold" readonly=""  id="productname"
+        required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+     
+      <div class="col-md-3 mb-3">
+      <label for="vehicle">Price</label>
+      <input type="text" class="form-control font-weight-bold" readonly="" id="selling_price">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+            
+      <div class="col-md-3 mb-3">
+                    <label for="customer">Quantity(feets)</label>
+				            <input type="text" class="form-control font-weight-bold" id="quantity" required  pattern="[0-9]+">
+                     <div class="valid-feedback">
+                    Looks good!
+                    </div>
+		 </div>
+     	<strong>	<p class="text-success " id="demo9"></p>  </strong>
+        	
+                <div class="col-md-6 mb-5 font-weight-bold">
+                    <label for="customer ">TOTAL</label>
+				            <textarea type="text" class="form-control font-weight-bold"  readonly=""  id="total" required> 0</textarea>
+				       </div>
+            
+      
+            <button onclick="return confirm('Confirm Transaction')" id="submit" class="btn btn-success btn-block shadow p-3 mb-5 rounded">Checkout</button>
+            
+				</form>
+            </div>
+        </div>
+     </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
